@@ -127,10 +127,10 @@
 
         const map = new maplibregl.Map({
             container: 'map',
-            style: 'std.json',
+            // style: 'std.json',
             // style: 'https://tile2.openstreetmap.jp/styles/osm-bright/style.json',
             // style: 'https://tile2.openstreetmap.jp/styles/osm-bright-ja/style.json',
-            // style: 'https://tile.openstreetmap.jp/styles/maptiler-basic-ja/style.json',
+            style: 'https://tile.openstreetmap.jp/styles/maptiler-basic-ja/style.json',
             zoom: 9.57,
             minZoom: 1,
             maxZoom: 23,
@@ -217,7 +217,6 @@
                 tileSize: 256
             });
 
-            /*
             // 陰影起伏図レイヤ
             map.addLayer({
                 id: 'hillshade',
@@ -229,7 +228,6 @@
                     'raster-opacity': 0.3
                 }
             });
-            */
 
             // スライダーで陰影起伏図の不透明度を制御
             const inei_sliderOpactiy = document.getElementById('inei-slider-opacity');
