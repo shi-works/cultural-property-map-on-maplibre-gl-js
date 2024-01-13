@@ -127,10 +127,10 @@
 
         const map = new maplibregl.Map({
             container: 'map',
-            // style: 'std.json',
+            style: 'std.json',
             // style: 'https://tile2.openstreetmap.jp/styles/osm-bright/style.json',
             // style: 'https://tile2.openstreetmap.jp/styles/osm-bright-ja/style.json',
-            style: 'https://tile.openstreetmap.jp/styles/maptiler-basic-ja/style.json',
+            // style: 'https://tile.openstreetmap.jp/styles/maptiler-basic-ja/style.json',
             zoom: 9.57,
             minZoom: 1,
             maxZoom: 23,
@@ -204,7 +204,7 @@
             });
 
             // 産総研 シームレス標高タイルセット
-            map.setTerrain({ 'source': 'aist-dem', 'exaggeration': 1 });
+            // map.setTerrain({ 'source': 'aist-dem', 'exaggeration': 1 });
 
 
             // 陰影起伏図ソース
@@ -217,9 +217,10 @@
                 tileSize: 256
             });
 
+            /*
             // 陰影起伏図レイヤ
             map.addLayer({
-                id: 'hillshade-tiles',
+                id: 'hillshade',
                 type: 'raster',
                 source: 'hillshade',
                 minzoom: 2,
@@ -228,6 +229,7 @@
                     'raster-opacity': 0.3
                 }
             });
+            */
 
             // スライダーで陰影起伏図の不透明度を制御
             const inei_sliderOpactiy = document.getElementById('inei-slider-opacity');
@@ -235,7 +237,7 @@
 
             inei_sliderOpactiy.addEventListener('input', (e) => {
                 map.setPaintProperty(
-                    'hillshade-tiles',
+                    'hillshade',
                     'raster-opacity',
                     parseInt(e.target.value, 10) / 100
                 );
